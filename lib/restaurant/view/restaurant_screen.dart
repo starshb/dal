@@ -5,10 +5,6 @@ class RestaurantScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text('홈'),
-      ),
-    );
+    return const Placeholder();
   }
 }
