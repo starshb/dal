@@ -17,6 +17,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    deleteToken();
+    checkToken();
+  }
+
+  void deleteToken() async {
+    await storage.deleteAll();
   }
 
   void checkToken() async {
@@ -25,16 +31,18 @@ class _SplashScreenState extends State<SplashScreen> {
 
     if (refreshToken == null || accessToken == null) {
       Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(
-            builder: (_) => LoginScreen(),
-          ),
-          (route) => false);
+        MaterialPageRoute(
+          builder: (_) => LoginScreen(),
+        ),
+        (route) => false,
+      );
     } else {
       Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(
-            builder: (_) => RootTab(),
-          ),
-          (route) => false);
+        MaterialPageRoute(
+          builder: (_) => RootTab(),
+        ),
+        (route) => false,
+      );
     }
   }
 
@@ -51,10 +59,6 @@ class _SplashScreenState extends State<SplashScreen> {
               'assets/logo.png',
               width: MediaQuery.of(context).size.width / 2,
             ),
-            // Image.network(
-            //   'https://cdn.ngonews.kr/news/photo/202303/139920_106152_5025.jpg',
-            //   width: MediaQuery.of(context).size.width / 2,
-            // ),
             SizedBox(
               height: 16.0,
             ),
