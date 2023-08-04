@@ -52,10 +52,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   'assets/logo.png',
                   width: MediaQuery.of(context).size.width / 3 * 2,
                 ),
-                // Image.network(
-                //   'https://cdn.ngonews.kr/news/photo/202303/139920_106152_5025.jpg',
-                //   width: MediaQuery.of(context).size.width / 3 * 2,
-                // ),
                 CustomTextFormField(
                   onChanged: (String value) {
                     username = value;
@@ -92,8 +88,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                       ),
                     );
-                    final refreshToken = resp.data['refresh'];
-                    final accessToken = resp.data['access'];
+                    final refreshToken = resp.data['refreshToken'];
+                    final accessToken = resp.data['accessToken'];
 
                     await storage.write(
                         key: REFRESH_TOKEN_KEY, value: refreshToken);
@@ -105,7 +101,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         builder: (_) => RootTab(),
                       ),
                     );
-                    print(resp.data);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: PRIMARY_COLOR,
