@@ -9,7 +9,6 @@ class RestaurantScreen extends StatelessWidget {
       child: Center(
         child: Text('홈'),
       ),
-
     );
   }
 }
