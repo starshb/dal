@@ -1,26 +1,28 @@
 import 'dart:convert';
-import 'dart:io';
 
-import 'package:deliciousdal/common/const/colors.dart';
-import 'package:deliciousdal/common/const/data.dart';
+import 'package:deliciousdal/common/component/custom_text_form_field.dart';
 import 'package:deliciousdal/common/layout/default_layout.dart';
-import 'package:deliciousdal/user/view/join_screen.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
-import '../../common/component/custom_text_form_field.dart';
+import '../../common/const/colors.dart';
+import '../../common/const/data.dart';
 import '../../common/view/root_tab.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class JoinScreen extends StatefulWidget {
+  const JoinScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<JoinScreen> createState() => _JoinScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _JoinScreenState extends State<JoinScreen> {
+  String username = '';
+  String nickname = '';
   String uid = '';
   String password = '';
+  String phone = '';
+  String birth = '';
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +30,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return DefaultLayout(
       child: SingleChildScrollView(
-        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        //드래그 했을 때 키보드 내려감
         child: SafeArea(
           top: true,
           bottom: false,
@@ -39,32 +39,61 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 _Title(),
-                const SizedBox(
+                SizedBox(
                   height: 16.0,
                 ),
-                _SubTitle(),
-                Image.asset(
-                  'assets/logo.png',
-                  width: MediaQuery.of(context).size.width / 3 * 2,
+                CustomTextFormField(
+                  onChanged: (String value) {
+                    username = value;
+                  },
+                  hintText: '이름',
+                ),
+                SizedBox(
+                  height: 16.0,
+                ),
+                CustomTextFormField(
+                  onChanged: (String value) {
+                    nickname = value;
+                  },
+                  hintText: '닉네임',
+                ),
+                SizedBox(
+                  height: 16.0,
                 ),
                 CustomTextFormField(
                   onChanged: (String value) {
                     uid = value;
                   },
-                  hintText: '이메일을 입력해주세요',
-                  // errorText: '에러가 있습니다',
+                  hintText: '아이디',
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 16.0,
                 ),
                 CustomTextFormField(
                   onChanged: (String value) {
                     password = value;
                   },
-                  hintText: '비밀번호를 입력해주세요',
-                  obscureText: true,
+                  hintText: '비밀번호',
                 ),
-                const SizedBox(
+                SizedBox(
+                  height: 16.0,
+                ),
+                CustomTextFormField(
+                  onChanged: (String value) {
+                    birth = value;
+                  },
+                  hintText: '생년월일 (8글자)',
+                ),
+                SizedBox(
+                  height: 16.0,
+                ),
+                CustomTextFormField(
+                  onChanged: (String value) {
+                    phone = value;
+                  },
+                  hintText: '전화번호(11글자)',
+                ),
+                SizedBox(
                   height: 16.0,
                 ),
                 ElevatedButton(
@@ -101,22 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     backgroundColor: PRIMARY_COLOR,
                   ),
                   child: Text(
-                    '로그인',
-                  ),
-                ),
-                TextButton(
-                  onPressed: () async {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => JoinScreen(),
-                      ),
-                    );
-                  },
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.black,
-                  ),
-                  child: Text(
-                    '회원가입',
+                    '가입완료',
                   ),
                 ),
               ],
@@ -134,27 +148,13 @@ class _Title extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      '환영합니다!',
+      '회원가입',
       style: TextStyle(
         fontSize: 34,
         fontWeight: FontWeight.w500,
         color: Colors.black,
       ),
-    );
-  }
-}
-
-class _SubTitle extends StatelessWidget {
-  const _SubTitle({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      '이메일과 비밀번호를 입력해 로그인 해주세요!\n오늘도 기다림이 짧은 즐거운 주문이 되길 :)',
-      style: TextStyle(
-        fontSize: 16,
-        color: BODY_TEXT_COLOR,
-      ),
+      textAlign: TextAlign.center,
     );
   }
 }
