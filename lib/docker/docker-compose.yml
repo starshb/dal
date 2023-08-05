@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+  webserver: ...
+  supabase:
+    ports:
+      - "9001:80"
+    links:
+      - supabase:supabase
+    restart: always
+    volumes:
+      - ./html:/ver/www/html
+    depends_on:
+      - supabase
+    supabase:
+      image: supabase:1.10.11
+      environment:
+        SUPABASE_ROOT_PASSWORD: 'join'
+        SUPABASE_USER: 'join'
+        SUPABASE_PASSWORD: 'join'
+        SUPABASE_DATABASE: 'join'
+      volumes:
+        - ./data:/var?lib/supabase
+      ports:
+        - "52000:3306"
