@@ -1,12 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:deliciousdal/common/component/custom_snackbar.dart';
 import 'package:deliciousdal/common/const/colors.dart';
 import 'package:deliciousdal/common/const/data.dart';
 import 'package:deliciousdal/common/layout/default_layout.dart';
 import 'package:deliciousdal/user/view/join_screen.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../common/component/custom_text_form_field.dart';
 import '../../common/view/root_tab.dart';
@@ -21,6 +23,18 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   String uid = '';
   String password = '';
+
+  Future<String?> userLogin({
+    required final String uid,
+    required final String password,
+  }) async {
+    final resp = await client.auth.signInWithPassword(
+      email: uid,
+      password: password,
+    );
+    final User? user = resp.user;
+    return user?.id;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,26 +84,45 @@ class _LoginScreenState extends State<LoginScreen> {
                 ElevatedButton(
                   onPressed: () async {
                     //id:비밀번호
-                    final rawString = '$uid:$password';
-                    print(rawString);
-                    Codec<String, String> stringToBase64 = utf8.fuse(base64);
+                    // final rawString = '$uid:$password';
+                    // print(rawString);
+                    // Codec<String, String> stringToBase64 = utf8.fuse(base64);
+                    //
+                    // String token = stringToBase64.encode(rawString);
+                    // final resp = await dio.post(
+                    //   'http://$ip/auth/login',
+                    //   options: Options(
+                    //     headers: {
+                    //       'authorization': 'Basic $token',
+                    //     },
+                    //   ),
+                    // );
+                    // final refreshToken = resp.data['refreshToken'];
+                    // final accessToken = resp.data['accessToken'];
+                    //
+                    // await storage.write(
+                    //     key: REFRESH_TOKEN_KEY, value: refreshToken);
+                    // await storage.write(
+                    //     key: ACCESS_TOKEN_KEY, value: accessToken);
 
-                    String token = stringToBase64.encode(rawString);
-                    final resp = await dio.post(
-                      'http://$ip/auth/login',
-                      options: Options(
-                        headers: {
-                          'authorization': 'Basic $token',
-                        },
-                      ),
+                    // print('$uid $password');
+                    // dynamic loginValue =
+                    //     await userLogin(uid: uid, password: password);
+                    //
+                    // if (loginValue != null) {
+                    //   Navigator.of(context).push(
+                    //     MaterialPageRoute(
+                    //       builder: (_) => RootTab(),
+                    //     ),
+                    //   );
+                    // } else {
+                    //   context.showErrorMessage('아이디와 비밀번호를 확인해주세요');
+                    // }
+
+                    final resp = await client.auth.signInWithPassword(
+                      email: uid,
+                      password: password,
                     );
-                    final refreshToken = resp.data['refreshToken'];
-                    final accessToken = resp.data['accessToken'];
-
-                    await storage.write(
-                        key: REFRESH_TOKEN_KEY, value: refreshToken);
-                    await storage.write(
-                        key: ACCESS_TOKEN_KEY, value: accessToken);
 
                     Navigator.of(context).push(
                       MaterialPageRoute(
