@@ -5,8 +5,6 @@ import 'package:deliciousdal/user/view/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import 'common/const/data.dart';
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Supabase.initialize(
@@ -29,13 +27,7 @@ class _App extends StatelessWidget {
         fontFamily: 'Nanum',
       ),
       debugShowCheckedModeBanner: false,
-      // initialRoute: client.auth.currentSession != null ? '/home' : '/',
-      // routes: {
-      //   '/': (context) => LoginScreen(),
-      //   '/signup': (context) => JoinScreen(),
-      //   '/home': (context) => RootTab(),
-      // },
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }

@@ -27,8 +27,14 @@ class RestaurantScreen extends StatelessWidget {
     return resp;
   }
 
+  Future readSt() async {
+    final List resp = await client.storage.listBuckets();
+    print('storage : $resp');
+  }
+
   @override
   Widget build(BuildContext context) {
+    readSt();
     // readData();
     return Container(
       child: Center(
