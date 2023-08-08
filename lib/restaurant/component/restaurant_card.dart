@@ -7,7 +7,7 @@ class RestaurantCard extends StatelessWidget {
   // 레스토랑 이름
   final String name;
   // 레스토랑 태그
-  final List<String> tags;
+  final bool takeout;
   // 평점 갯수
   final int ratingsCount;
   // 배송 걸리는 시간
@@ -20,7 +20,7 @@ class RestaurantCard extends StatelessWidget {
   const RestaurantCard(
       {required this.image,
       required this.name,
-      required this.tags,
+      required this.takeout,
       required this.ratingsCount,
       required this.deliveryTime,
       required this.deliveryFee,
@@ -50,7 +50,7 @@ class RestaurantCard extends StatelessWidget {
           height: 8.0,
         ),
         Text(
-          tags.join(' · '),
+          takeout ? '포장가능' : '',
           style: TextStyle(
             fontSize: 14.0,
             color: BODY_TEXT_COLOR,

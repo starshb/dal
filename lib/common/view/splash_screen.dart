@@ -41,7 +41,6 @@ class _SplashScreenState extends State<SplashScreen> {
           },
         ),
       );
-
       await storage.write(
           key: ACCESS_TOKEN_KEY, value: resp.data['accessToken']);
 

@@ -1,8 +1,13 @@
+import 'package:deliciousdal/common/view/root_tab.dart';
 import 'package:deliciousdal/common/view/splash_screen.dart';
+import 'package:deliciousdal/user/view/join_screen.dart';
+import 'package:deliciousdal/user/view/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-Future main() async {
+import 'common/const/data.dart';
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Supabase.initialize(
     url: 'https://vepjengucoxqwdtwtfxi.supabase.co',
@@ -24,7 +29,13 @@ class _App extends StatelessWidget {
         fontFamily: 'Nanum',
       ),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      // initialRoute: client.auth.currentSession != null ? '/home' : '/',
+      // routes: {
+      //   '/': (context) => LoginScreen(),
+      //   '/signup': (context) => JoinScreen(),
+      //   '/home': (context) => RootTab(),
+      // },
+      home: LoginScreen(),
     );
   }
 }

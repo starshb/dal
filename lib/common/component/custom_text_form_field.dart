@@ -14,17 +14,16 @@ class CustomTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.autofocus = false,
     required this.onChanged,
-    Key?key,
-  }):super(key: key);
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final baseBorder = OutlineInputBorder(
-      borderSide: BorderSide(
-        color: INPUT_BORDER_COLOR,
-        width: 1.0,
-      )
-    );
+        borderSide: BorderSide(
+      color: INPUT_BORDER_COLOR,
+      width: 1.0,
+    ));
 
     return TextFormField(
       cursorColor: PRIMARY_COLOR,
@@ -35,10 +34,7 @@ class CustomTextFormField extends StatelessWidget {
         contentPadding: EdgeInsets.all(20),
         hintText: hintText,
         errorText: errorText,
-        hintStyle: TextStyle(
-          color: BODY_TEXT_COLOR,
-          fontSize: 14.0
-        ),
+        hintStyle: TextStyle(color: BODY_TEXT_COLOR, fontSize: 14.0),
         fillColor: INPUT_BG_COLOR,
         filled: true,
         border: baseBorder,
