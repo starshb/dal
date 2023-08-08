@@ -33,9 +33,11 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
   }
 
   void tabListener() {
-    setState(() {
-      index = controller.index;
-    });
+    if (mounted) {
+      setState(() {
+        index = controller.index;
+      });
+    }
   }
 
   @override

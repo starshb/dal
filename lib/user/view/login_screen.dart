@@ -39,7 +39,11 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final dio = Dio();
+    final Session? session = client.auth.currentSession;
+    print(session);
 
+    final User? user = client.auth.currentUser;
+    print(user);
     return DefaultLayout(
       child: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
@@ -105,29 +109,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     // await storage.write(
                     //     key: ACCESS_TOKEN_KEY, value: accessToken);
 
-                    // print('$uid $password');
-                    // dynamic loginValue =
-                    //     await userLogin(uid: uid, password: password);
-                    //
-                    // if (loginValue != null) {
-                    //   Navigator.of(context).push(
-                    //     MaterialPageRoute(
-                    //       builder: (_) => RootTab(),
-                    //     ),
-                    //   );
-                    // } else {
-                    //   context.showErrorMessage('아이디와 비밀번호를 확인해주세요');
-                    // }
-
                     final resp = await client.auth.signInWithPassword(
                       email: uid,
                       password: password,
                     );
 
-                    Navigator.of(context).push(
+                    Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(
                         builder: (_) => RootTab(),
                       ),
+                      (route) => false,
                     );
                   },
                   style: ElevatedButton.styleFrom(
