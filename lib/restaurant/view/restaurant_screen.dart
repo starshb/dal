@@ -1,4 +1,5 @@
 import 'package:deliciousdal/restaurant/component/restaurant_card.dart';
+import 'package:deliciousdal/restaurant/model/restaurant_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -28,8 +29,10 @@ class RestaurantScreen extends StatelessWidget {
   }
 
   Future readSt() async {
-    final List resp = await client.storage.listBuckets();
+    final resp = await client.storage.getBucket('deliciousdal');
     print('storage : $resp');
+    // final cs = await client.storage.createBucket('deliciousdel');
+    // print('cSCS : $cs');
   }
 
   @override
@@ -51,17 +54,13 @@ class RestaurantScreen extends StatelessWidget {
               return ListView.separated(
                   itemCount: snapshot.data!.length,
                   itemBuilder: (_, index) {
-                    return RestaurantCard(
-                      image: Image.asset(
-                        'assets/images/food/ban01.jpg',
-                        fit: BoxFit.cover,
-                      ),
-                      name: '반미에 반하다',
-                      takeout: true,
-                      ratingsCount: 120,
-                      deliveryTime: 15,
-                      deliveryFee: 2100,
-                      ratings: 4.12,
+                    final item = snapshot.data![index];
+                    final pItem = RestaurantModel.fromJson(
+                      json: item,
+                    );
+
+                    return RestaurantCard.fromModel(
+                      model: pItem,
                     );
                   },
                   separatorBuilder: (_, index) {

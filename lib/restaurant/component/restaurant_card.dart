@@ -1,6 +1,8 @@
 import 'package:deliciousdal/common/const/colors.dart';
 import 'package:flutter/material.dart';
 
+import '../model/restaurant_model.dart';
+
 class RestaurantCard extends StatelessWidget {
   // 이미지
   final Widget image;
@@ -8,24 +10,42 @@ class RestaurantCard extends StatelessWidget {
   final String name;
   // 레스토랑 태그
   final bool takeout;
-  // 평점 갯수
-  final int ratingsCount;
   // 배송 걸리는 시간
   final int deliveryTime;
   // 배송 시간
   final int deliveryFee;
   // 평점 평균
   final double ratings;
+  // 매장 정보
+  final String info;
 
   const RestaurantCard(
       {required this.image,
       required this.name,
       required this.takeout,
-      required this.ratingsCount,
+      required this.info,
       required this.deliveryTime,
       required this.deliveryFee,
       required this.ratings,
       super.key});
+
+  factory RestaurantCard.fromModel({
+    required RestaurantModel model,
+  }) {
+    return RestaurantCard(
+      image: Image.asset(
+        model.img,
+        // height: MediaQuery.of(context).size.height / 3, //cover에 맞게 height..?
+        fit: BoxFit.cover,
+      ),
+      name: model.name,
+      takeout: model.takeout,
+      info: model.info,
+      deliveryTime: model.deliveryTime,
+      deliveryFee: model.deliveryFee,
+      ratings: model.ratings,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +70,7 @@ class RestaurantCard extends StatelessWidget {
           height: 8.0,
         ),
         Text(
-          takeout ? '포장가능' : '',
+          info!,
           style: TextStyle(
             fontSize: 14.0,
             color: BODY_TEXT_COLOR,
@@ -67,18 +87,30 @@ class RestaurantCard extends StatelessWidget {
             ),
             renderDot(),
             _IconText(
-              icon: Icons.receipt,
-              label: ratingsCount.toString(),
-            ),
-            renderDot(),
-            _IconText(
               icon: Icons.timelapse_outlined,
               label: '$deliveryTime 분',
             ),
             renderDot(),
             _IconText(
               icon: Icons.monetization_on,
-              label: deliveryFee == 0 ? '무료' : deliveryFee.toString(),
+              label: deliveryFee == '0' ? '무료' : deliveryFee.toString(),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4.0),
+              child: Text(
+                takeout ? '·' : '',
+                style: TextStyle(
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+            Text(
+              takeout ? '포장가능' : '',
+              style: TextStyle(
+                fontSize: 14.0,
+                color: BODY_TEXT_COLOR,
+              ),
             ),
           ],
         )
