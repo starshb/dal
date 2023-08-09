@@ -10,9 +10,6 @@ Future<void> main() async {
     anonKey:
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZlcGplbmd1Y294cXdkdHd0ZnhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTEyMTU3MzYsImV4cCI6MjAwNjc5MTczNn0.7AsY9YQvPfFxZLegobq9h6z75POZf0Ya9jo2k9lTtZQ',
   );
-  final sstorage = SupabaseClient('https://vepjengucoxqwdtwtfxi.supabase.co',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZlcGplbmd1Y294cXdkdHd0ZnhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTEyMTU3MzYsImV4cCI6MjAwNjc5MTczNn0.7AsY9YQvPfFxZLegobq9h6z75POZf0Ya9jo2k9lTtZQ');
-
   runApp(
     _App(),
   );

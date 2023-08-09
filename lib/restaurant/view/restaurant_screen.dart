@@ -1,5 +1,6 @@
 import 'package:deliciousdal/restaurant/component/restaurant_card.dart';
 import 'package:deliciousdal/restaurant/model/restaurant_model.dart';
+import 'package:deliciousdal/restaurant/view/restaurant_detail_screen.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
@@ -21,18 +22,17 @@ class RestaurantScreen extends StatelessWidget {
   //     .from('store')
   //     .select()
   //     .then((value) => {print('value는 $value')});
-
-  Future<dynamic> readData() async {
-    final resp = await client.from('store').select();
-    print('data는 $resp');
-    return resp;
-  }
-
   Future readSt() async {
     final resp = await client.storage.getBucket('deliciousdal');
     print('storage : $resp');
     // final cs = await client.storage.createBucket('deliciousdel');
     // print('cSCS : $cs');
+  }
+
+  Future<dynamic> readData() async {
+    final resp = await client.from('store').select();
+    print('data는 $resp');
+    return resp;
   }
 
   @override
@@ -59,8 +59,19 @@ class RestaurantScreen extends StatelessWidget {
                       json: item,
                     );
 
-                    return RestaurantCard.fromModel(
-                      model: pItem,
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => RestaurantDetailScreen(
+                              id: pItem.id,
+                            ),
+                          ),
+                        );
+                      },
+                      child: RestaurantCard.fromModel(
+                        model: pItem,
+                      ),
                     );
                   },
                   separatorBuilder: (_, index) {
