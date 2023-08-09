@@ -114,46 +114,39 @@ class _JoinScreenState extends State<JoinScreen> {
                 ),
                 ElevatedButton(
                   onPressed: () async {
-                    //id:비밀번호
-                    // final rawString = '$uid:$password';
-                    // print(rawString);
-                    // Codec<String, String> stringToBase64 = utf8.fuse(base64);
-                    //
-                    // String token = stringToBase64.encode(rawString);
-                    // final resp = await dio.post(
-                    //   'http://$ip/auth/login',
-                    //   options: Options(
-                    //     headers: {
-                    //       'authorization': 'Basic $token',
-                    //     },
-                    //   ),
-                    // );
-                    // final refreshToken = resp.data['refreshToken'];
-                    // final accessToken = resp.data['accessToken'];
-                    //
-                    // await storage.write(
-                    //     key: REFRESH_TOKEN_KEY, value: refreshToken);
-                    // await storage.write(
-                    //     key: ACCESS_TOKEN_KEY, value: accessToken);
+                    try {
+                      final resp = await client.auth.signUp(
+                        email: uid,
+                        password: password,
+                        data: {
+                          'username': username,
+                          'nickname': nickname,
+                          'uid': uid,
+                          'password': password,
+                          'birth': birth,
+                          'phone': phone,
+                        },
+                      );
 
-                    final resp = await client.auth.signUp(
-                      email: uid,
-                      password: password,
-                      data: {
-                        'username': username,
-                        'nickname': nickname,
-                        'uid': uid,
-                        'password': password,
-                        'birth': birth,
-                        'phone': phone,
-                      },
-                    );
-
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => RootTab(),
-                      ),
-                    );
+                      Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                          builder: (_) => RootTab(),
+                        ),
+                        (route) => false,
+                      );
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            '모든 항목을 입력해주세요.',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          backgroundColor: BODY_TEXT_COLOR,
+                        ),
+                      );
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: PRIMARY_COLOR,
