@@ -1,5 +1,5 @@
 # Projects Name 
-- 맛있달
+- 맛있달 
 
 # Technology Stack
 - JWT
