@@ -17,4 +17,6 @@
 <hr>
 # ERD <br>
 <img width="40%" src="https://github.com/gksgpwls0306/deliciousdal/assets/138543543/ef1ec890-b6b5-481b-aab7-98b33cdd40c7"/>
-
+<hr>
+# Sequence Diagram
+<img width="40%" src="https://github.com/gksgpwls0306/deliciousdal/assets/138543543/9a917710-dce3-4d87-b262-c5b7e44f29cf"/>
