@@ -36,4 +36,4 @@
 📌 Sequence Diagram 
 <br>
 <br>
-<img width="40%" src="https://github.com/gksgpwls0306/deliciousdal/assets/138543543/9a917710-dce3-4d87-b262-c5b7e44f29cf"/>
+<img width="40%" src="https://github.com/gksgpwls0306/deliciousdal/assets/138543543/b737c438-5f4f-42fe-b1ac-59f358fa7f8e"/>
