@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
               children: [
                 ElevatedButton(
                     onPressed: () async {
-                      Uri phoneno = Uri.parse('tel:+97798345348734');
+                      Uri phoneno = Uri.parse('tel:+8201012345678');
                       if (await launchUrl(phoneno)) {
                         //dialer opened
                       } else {
