@@ -31,13 +31,13 @@ class RestaurantScreen extends StatelessWidget {
 
   Future<dynamic> readData() async {
     final resp = await client.from('store').select();
-    print('data는 $resp');
+    // print('data는 $resp');
     return resp;
   }
 
   @override
   Widget build(BuildContext context) {
-    readSt();
+    // readSt();
     // readData();
     return Container(
       child: Center(
@@ -48,7 +48,8 @@ class RestaurantScreen extends StatelessWidget {
             builder: (context, AsyncSnapshot<dynamic> snapshot) {
               if (!snapshot.hasData) {
                 return Container(
-                  child: Text('No More Data'),
+                  child: CircularProgressIndicator(),
+                  // child: Text('No More Data'),
                 );
               }
               return ListView.separated(

@@ -1,8 +1,36 @@
 import 'package:deliciousdal/common/const/colors.dart';
+import 'package:deliciousdal/restaurant/model/restaurant_detail_model.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key});
+  final Widget image;
+  final String name;
+  final String info;
+  final int price;
+
+  const ProductCard({
+    required this.image,
+    required this.name,
+    required this.info,
+    required this.price,
+    super.key,
+  });
+
+  factory ProductCard.fromModel({
+    required RestaurantFoodModel model,
+  }) {
+    return ProductCard(
+      image: Image.asset(
+        model.img,
+        width: 120,
+        height: 120,
+        fit: BoxFit.cover,
+      ),
+      name: model.name,
+      info: model.info,
+      price: model.price,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +41,7 @@ class ProductCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(
               8.0,
             ),
-            child: Image.asset(
-              'assets/images/food/ban01.jpg',
-              width: 120,
-              height: 120,
-              fit: BoxFit.cover,
-            ),
+            child: image,
           ),
           SizedBox(
             width: 16.0,
@@ -29,14 +52,14 @@ class ProductCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  '반미',
+                  name,
                   style: TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
-                  '계란 가득 반미',
+                  info,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis, // ...표시
                   style: TextStyle(
@@ -45,7 +68,7 @@ class ProductCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '10000원',
+                  '2000원',
                   style: TextStyle(
                     color: PRIMARY_COLOR,
                     fontSize: 12.0,
