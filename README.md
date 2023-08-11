@@ -9,6 +9,11 @@
 - Swagger
 - Git / Github
 <hr>
+
+# Trouble Shooting
+- 
+
+<hr>
 # Architecture <br>
 <img width="40%" src="https://github.com/gksgpwls0306/deliciousdal/assets/138543543/0eabcd22-25d6-488c-bc97-126296db7f1e"/>
 <hr>
