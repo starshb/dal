@@ -14,12 +14,12 @@ class RestaurantDetailScreen extends StatelessWidget {
   const RestaurantDetailScreen({required this.id, super.key});
 
   //<Map<Stirng,dynamic>>이 아닌 형식으로 잡히는지를 위한 테스트 메서드
-  // Future<dynamic> getRestaurantDetail() async {
-  //   // final resp = await client.from('food').select().eq('store_id', id);
-  //   final resp = await client.from('store').select('*,food(*)').eq('id', id);
-  //   print('resp 는 $resp');
-  //   return resp;
-  // }
+  Future<dynamic> getRestaurantDetail() async {
+    // final resp = await client.from('food').select().eq('store_id', id);
+    final resp = await client.from('store').select('*,food(*)').eq('id', id);
+    // print('resp 는 $resp');
+    return resp;
+  }
 
   // Future getRestaurant() async {
   //   final resp = await client.from('store').select().eq('id', id);
@@ -31,58 +31,14 @@ class RestaurantDetailScreen extends StatelessWidget {
   //   // return resp;
   // }
 
-//<Map<String, dynamic>>이 아닌 형식으로 잡히는를 위한 테스트
-//   @override
-//   Widget build(BuildContext context) {
-//     return DefaultLayout(
-//       title: '반미에 반하다',
-//       child: FutureBuilder<dynamic>(
-//         future: getRestaurantDetail(),
-//         builder: (_, AsyncSnapshot<dynamic> snapshot) {
-//           if (snapshot.connectionState == ConnectionState.done)
-//             print('스냅샷 데이터완료 ${snapshot.data}');
-//           else if (snapshot.connectionState == ConnectionState.none)
-//             print('스냅샷 데이터 시작 ${snapshot.data}');
-//           else
-//             print('스냅샷 데이터 가져오는 중 ${snapshot.data}');
-//           if (!snapshot.hasData) {
-//             // return Text('No data');
-//             return Center(
-//               child: CircularProgressIndicator(),
-//             );
-//           }
-//
-//           final item = RestaurantDetailModel.fromJson(
-//             json: snapshot.data!,
-//           );
-//           return CustomScrollView(
-//             slivers: [
-//               renderTop(model: snapshot.data),
-//               renderLabel(),
-//               renderProducts(
-//                 food: item.food
-//               ),
-//             ],
-//           );
-//         },
-//       ),
-//     );
-//   }
-
-  Future<Map<String, dynamic>> getRestaurantDetail() async {
-    final resp = await client.from('food').select().eq('store_id', id);
-    // final resp = await client.from('store').select('*,food(*)').eq('id', id);
-    print('resp 는 $resp');
-    return resp;
-  }
-
+//<Map<String, dynamic>>이 아닌 형식으로 잡히는지를 위한 테스트
   @override
   Widget build(BuildContext context) {
     return DefaultLayout(
       title: '반미에 반하다',
-      child: FutureBuilder<Map<String, dynamic>>(
+      child: FutureBuilder<dynamic>(
         future: getRestaurantDetail(),
-        builder: (_, AsyncSnapshot<Map<String, dynamic>> snapshot) {
+        builder: (_, AsyncSnapshot<dynamic> snapshot) {
           if (snapshot.connectionState == ConnectionState.done)
             print('스냅샷 데이터완료 ${snapshot.data}');
           else if (snapshot.connectionState == ConnectionState.none)
@@ -96,20 +52,62 @@ class RestaurantDetailScreen extends StatelessWidget {
             );
           }
 
-          final item = RestaurantDetailModel.fromJson(
-            json: snapshot.data!,
-          );
+          // final item = RestaurantDetailModel.fromJson(
+          //   json: snapshot.data!,
+          // );
           return CustomScrollView(
             slivers: [
-              renderTop(model: snapshot.data),
+              // renderTop(model: snapshot.data),
               renderLabel(),
-              renderProducts(food: item.food),
+              // renderProducts(food: item.food),
             ],
           );
         },
       ),
     );
   }
+
+  // Future<Map<String, dynamic>> getRestaurantDetail() async {
+  //   final resp = await client.from('food').select().eq('store_id', id);
+  //   // final resp = await client.from('store').select('*,food(*)').eq('id', id);
+  //   print('resp 는 $resp');
+  //   return resp;
+  // }
+  //
+  // @override
+  // Widget build(BuildContext context) {
+  //   return DefaultLayout(
+  //     title: '반미에 반하다',
+  //     child: FutureBuilder<Map<String, dynamic>>(
+  //       future: getRestaurantDetail(),
+  //       builder: (_, AsyncSnapshot<Map<String, dynamic>> snapshot) {
+  //         if (snapshot.connectionState == ConnectionState.done)
+  //           print('스냅샷 데이터완료 ${snapshot.data}');
+  //         else if (snapshot.connectionState == ConnectionState.none)
+  //           print('스냅샷 데이터 시작 ${snapshot.data}');
+  //         else
+  //           print('스냅샷 데이터 가져오는 중 ${snapshot.data}');
+  //         if (!snapshot.hasData) {
+  //           // return Text('No data');
+  //           return Center(
+  //             child: CircularProgressIndicator(),
+  //           );
+  //         }
+  //
+  //         final item = RestaurantDetailModel.fromJson(
+  //           json: snapshot.data!,
+  //         );
+  //         return CustomScrollView(
+  //           slivers: [
+  //             renderTop(model: snapshot.data),
+  //             renderLabel(),
+  //             renderProducts(food: item.food),
+  //           ],
+  //         );
+  //       },
+  //     ),
+  //   );
+  // }
 
   SliverPadding renderLabel() {
     return SliverPadding(
@@ -151,14 +149,17 @@ class RestaurantDetailScreen extends StatelessWidget {
 
   SliverToBoxAdapter renderTop({required dynamic model}) {
     print('item? $model');
-    // final newitem = RestaurantDetailModel.fromJson(json: item);
-    // print('newitem? $newitem');
+
+    // <dynamic>형식일때 사용---------
+    final newitem = RestaurantModel.fromJson(json: model);
+    print('newitem? $newitem');
     // final pItem = RestaurantModel.fromJson(json: item);
     // print('pItem? $pItem');
+    //-----------------------------
 
     return SliverToBoxAdapter(
       child: RestaurantCard.fromModel(
-        model: model,
+        model: newitem,
         isDetail: true,
       ),
     );
