@@ -1,8 +1,11 @@
 import 'package:animated_floating_buttons/animated_floating_buttons.dart';
+import 'package:deliciousdal/call/call.dart';
 import 'package:deliciousdal/chatbot/chat_send.dart';
 import 'package:deliciousdal/common/layout/default_layout.dart';
 import 'package:deliciousdal/restaurant/view/restaurant_screen.dart';
+import 'package:deliciousdal/screen/main_page.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../const/colors.dart';
 
@@ -66,7 +69,13 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
   Widget Chatroom() {
     return Container(
       child: FloatingActionButton(
-        onPressed: null,
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => MainPage(),
+            ),
+          );
+        },
         heroTag: "Chatroom",
         tooltip: 'Chatroom',
         child: Icon(Icons.question_answer_outlined),
@@ -78,7 +87,7 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
   Widget Call() {
     return Container(
       child: FloatingActionButton(
-        onPressed: null,
+        onPressed: CallScreen,
         heroTag: "Call",
         tooltip: 'Call',
         child: Icon(Icons.headset_mic),
