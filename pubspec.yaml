@@ -45,6 +45,8 @@ dependencies:
   flutter_naver_map: ^1.0.2
   url_launcher: ^6.1.12
   flutter_phone_direct_caller: ^2.1.1
+  animated_floating_buttons: ^0.0.2
+  dialog_flowtter:
 
 flutter_launcher_icons:
   image_path: "assets/logo.png"
@@ -81,6 +83,7 @@ flutter:
     - assets/images/food/
     - assets/appstore.png
     - assets/playstore.png
+    - assets/
 
 
 

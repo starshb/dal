@@ -68,7 +68,7 @@ class ProductCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '2000원',
+                  '$price원',
                   style: TextStyle(
                     color: PRIMARY_COLOR,
                     fontSize: 12.0,
