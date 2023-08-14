@@ -135,16 +135,16 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
             label: 'home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: 'home',
+            icon: Icon(Icons.fastfood_outlined),
+            label: 'Food',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: 'home',
+            icon: Icon(Icons.receipt_long),
+            label: 'Order',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: 'home',
+            icon: Icon(Icons.perm_identity),
+            label: 'My',
           ),
         ],
       ),
