@@ -7,7 +7,7 @@
 - Node.js 
 - Flutter 
 - Swagger
-- Supabase
+- Supabase 
 - Git / Github
 <hr>
 
