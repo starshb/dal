@@ -198,22 +198,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.2"
-  flutter_naver_login:
-    dependency: "direct main"
-    description:
-      name: flutter_naver_login
-      sha256: "69d62da60e866b09894f2d632d7d1cb36eee17164b9e46e33d86ebee4b91cd42"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.8.0"
-  flutter_naver_map:
-    dependency: "direct main"
-    description:
-      name: flutter_naver_map
-      sha256: "2f12d6fe0b9a41c9bce994eed0e5547840e0ba211e67b604a6e70ce160a54d6b"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.2"
   flutter_phone_direct_caller:
     dependency: "direct main"
     description:
@@ -222,6 +206,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  flutter_plugin_android_lifecycle:
+    dependency: transitive
+    description:
+      name: flutter_plugin_android_lifecycle
+      sha256: "950e77c2bbe1692bc0874fc7fb491b96a4dc340457f4ea1641443d0a6c1ea360"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.15"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -344,6 +336,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.17"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.18.1"
   js:
     dependency: transitive
     description:
@@ -456,6 +456,46 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  local_auth:
+    dependency: "direct main"
+    description:
+      name: local_auth
+      sha256: "0cf238be2bfa51a6c9e7e9cfc11c05ea39f2a3a4d3e5bb255d0ebc917da24401"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.6"
+  local_auth_android:
+    dependency: transitive
+    description:
+      name: local_auth_android
+      sha256: "36a78898198386d36d4e152b8cb46059b18f0e2017f813a0e833e216199f8950"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.32"
+  local_auth_ios:
+    dependency: transitive
+    description:
+      name: local_auth_ios
+      sha256: edc2977c5145492f3451db9507a2f2f284ee4f408950b3e16670838726761940
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.3"
+  local_auth_platform_interface:
+    dependency: transitive
+    description:
+      name: local_auth_platform_interface
+      sha256: "9e160d59ef0743e35f1b50f4fb84dc64f55676b1b8071e319ef35e7f3bc13367"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.7"
+  local_auth_windows:
+    dependency: transitive
+    description:
+      name: local_auth_windows
+      sha256: "5af808e108c445d0cf702a8c5f8242f1363b7970320334f82e6e1e8ad0b0d7d4"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.9"
   matcher:
     dependency: transitive
     description:
@@ -628,10 +668,10 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_foundation
-      sha256: f39696b83e844923b642ce9dd4bd31736c17e697f6731a5adf445b1274cf3cd4
+      sha256: d29753996d8eb8f7619a1f13df6ce65e34bc107bef6330739ed76f18b22310ef
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.2"
+    version: "2.3.3"
   shared_preferences_linux:
     dependency: transitive
     description:
@@ -862,7 +902,7 @@ packages:
     source: hosted
     version: "2.4.0"
   webview_flutter:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: webview_flutter
       sha256: "789d52bd789373cc1e100fb634af2127e86c99cf9abde09499743270c5de8d00"
