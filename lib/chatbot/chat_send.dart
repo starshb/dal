@@ -32,7 +32,7 @@ class _ChatSendState extends State<ChatSend> {
   @override
   Widget build(BuildContext context) {
     return DefaultLayout(
-      title: '달챗',
+      title: '달봇',
       child: Column(
         children: [
           Expanded(
@@ -50,6 +50,10 @@ class _ChatSendState extends State<ChatSend> {
                   child: TextField(
                     controller: _controller,
                     style: const TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                    ),
+                    autofocus: true,
                   ),
                 ),
                 IconButton(

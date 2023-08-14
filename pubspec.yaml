@@ -81,6 +81,7 @@ flutter:
   assets:
     - assets/logo.png
     - assets/images/food/
+    - assets/images/icon/
     - assets/appstore.png
     - assets/playstore.png
     - assets/

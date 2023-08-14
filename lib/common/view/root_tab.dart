@@ -58,8 +58,10 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
         },
         heroTag: "Chatbot",
         tooltip: 'Chatbot',
-        child: Icon(
-          Icons.question_mark_outlined,
+        child: Image.asset(
+          'assets/images/icon/robot_icon.png',
+          width: 30,
+          height: 30,
         ),
         backgroundColor: PRIMARY_COLOR,
       ),
@@ -112,7 +114,7 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
       ),
       floatingActionButton: AnimatedFloatingActionButton(
         fabButtons: [
-          Chatbot(),
+          // Chatbot(),
           Chatroom(),
           Call(),
         ],
