@@ -198,22 +198,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.2"
-  flutter_naver_login:
-    dependency: "direct main"
-    description:
-      name: flutter_naver_login
-      sha256: "69d62da60e866b09894f2d632d7d1cb36eee17164b9e46e33d86ebee4b91cd42"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.8.0"
-  flutter_naver_map:
-    dependency: "direct main"
-    description:
-      name: flutter_naver_map
-      sha256: "2f12d6fe0b9a41c9bce994eed0e5547840e0ba211e67b604a6e70ce160a54d6b"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.2"
   flutter_phone_direct_caller:
     dependency: "direct main"
     description:
@@ -628,10 +612,10 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_foundation
-      sha256: f39696b83e844923b642ce9dd4bd31736c17e697f6731a5adf445b1274cf3cd4
+      sha256: d29753996d8eb8f7619a1f13df6ce65e34bc107bef6330739ed76f18b22310ef
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.2"
+    version: "2.3.3"
   shared_preferences_linux:
     dependency: transitive
     description:
@@ -862,7 +846,7 @@ packages:
     source: hosted
     version: "2.4.0"
   webview_flutter:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: webview_flutter
       sha256: "789d52bd789373cc1e100fb634af2127e86c99cf9abde09499743270c5de8d00"
