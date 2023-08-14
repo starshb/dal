@@ -1,3 +1,4 @@
+import 'package:deliciousdal/common/const/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -17,43 +18,47 @@ class _SendScreenState extends State<SendScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        constraints: BoxConstraints(
-          maxHeight: MediaQuery.of(context).size.height * .4,
-        ),
-        child: IntrinsicHeight(
-          child: Row(
-            children: [
-              Expanded(
-                  child: Padding(
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.of(context).size.height * .4,
+      ),
+      child: IntrinsicHeight(
+        child: Row(
+          children: [
+            Expanded(
+              child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 14),
                 child: TextField(
                   controller: tc,
                   maxLines: null,
                   onSubmitted: (str) async {
                     submit(str);
                   },
-                  decoration: const InputDecoration(border: InputBorder.none),
-                ),
-              )),
-              GestureDetector(
-                behavior: HitTestBehavior.translucent,
-                onTap: () {
-                  submit(tc.text);
-                },
-                child: Container(
-                  height: double.infinity,
-                  color: Colors.grey.shade700,
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: Icon(
-                    Icons.send,
-                    color: Colors.grey.shade200,
+                  decoration: const InputDecoration(
+                    border: InputBorder.none,
                   ),
                 ),
-              )
-            ],
-          ),
-        ));
+              ),
+            ),
+            GestureDetector(
+              behavior: HitTestBehavior.translucent,
+              onTap: () {
+                submit(tc.text);
+              },
+              child: Container(
+                height: double.infinity,
+                color: PRIMARY_COLOR,
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Icon(
+                  Icons.send,
+                  color: Colors.white,
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 
   Future submit(String str) async {

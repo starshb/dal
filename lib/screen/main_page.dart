@@ -1,3 +1,4 @@
+import 'package:deliciousdal/common/layout/default_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:deliciousdal/screen/local_dto/chat_dto.dart';
@@ -21,55 +22,65 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     // TODO: implement initState
     client = Supabase.instance.client;
-    stream = client.from('chat').stream(primaryKey: ['id'])
-      ..order('time', ascending: false).limit(1);
+    stream = client.from('chat').stream(primaryKey: ['id']).limit(1)
+      ..order('time', ascending: false);
     super.initState();
+  }
+
+  Stream listenToChat() {
+    return client.from('chat').stream(primaryKey: ['id']);
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: [
-          Divider(
-            height: 1,
-            thickness: 1,
-            color: Colors.grey.shade400,
-          ),
-          Expanded(
-              child: StreamBuilder(
-                  stream: stream,
-                  builder: (context, data) {
-                    if (data.connectionState == ConnectionState.active) {
-                      var d = (data.data as List);
-                      if (d.isNotEmpty) {
-                        if (list != null) {
-                          var dto = ChatDto.fromJson(d[0]);
-                          if (list!.isEmpty) {
-                            list!.add(dto);
+    return DefaultLayout(
+      title: '달챗',
+      child: SafeArea(
+        child: Column(
+          children: [
+            Divider(
+              height: 1,
+              thickness: 1,
+              color: Colors.grey.shade400,
+            ),
+            Expanded(
+                child: StreamBuilder(
+                    stream: stream,
+                    builder: (context, data) {
+                      if (data.connectionState == ConnectionState.active) {
+                        print(data.data);
+                        var d = (data.data as List);
+                        print(d);
+
+                        if (d.isNotEmpty) {
+                          if (list != null) {
+                            var dto = ChatDto.fromJson(d[0]);
+                            if (list!.isEmpty) {
+                              list!.add(dto);
+                            } else {
+                              list!.insert(0, dto);
+                            }
                           } else {
-                            list!.insert(0, dto);
+                            list = [];
                           }
-                        } else {
-                          list = [];
                         }
                       }
-                    }
-                    return TextScreen(
-                        list: list ?? [], myName: name, client: client);
-                  })),
-          Divider(
-            height: 1,
-            thickness: 1,
-            color: Colors.grey.shade400,
-          ),
-          SendScreen(myName: name, client: client),
-          Divider(
-            height: 1,
-            thickness: 1,
-            color: Colors.grey.shade400,
-          ),
-        ],
+                      return TextScreen(
+                          list: list ?? [], myName: name, client: client);
+                    })),
+            Divider(
+              height: 1,
+              thickness: 1,
+              color: Colors.grey.shade400,
+            ),
+            SendScreen(myName: name, client: client),
+            Divider(
+              height: 1,
+              thickness: 1,
+              color: Colors.grey.shade400,
+            ),
+          ],
+        ),
       ),
     );
   }
