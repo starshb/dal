@@ -5,7 +5,7 @@
 - JWT
 - Docker & Jenkins
 - Node.js 
-- Flutter
+- Flutter 
 - Swagger
 - Supabase
 - Git / Github
