@@ -7,7 +7,7 @@
 - Node.js 
 - Flutter 
 - Swagger
-- Supabase
+- Supabase 
 - Git / Github
 <hr>
 
@@ -18,7 +18,7 @@
 - 생성자가 일치 하지 않아 에러 발생
 - 수직 뷰 포트 높이가 안맞아 에러 발생
 <hr>
-📌 Architecture 
+📌 Architecture  
 <br>
 <br>
 <img width="40%" src="https://github.com/gksgpwls0306/deliciousdal/assets/138543543/0eabcd22-25d6-488c-bc97-126296db7f1e"/>
