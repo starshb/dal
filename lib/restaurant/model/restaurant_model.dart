@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'restaurant_model.g.dart';
+
+@JsonSerializable()
 class RestaurantModel {
   final String id;
   final String name;
@@ -25,21 +30,23 @@ class RestaurantModel {
     required this.img,
   });
 
-  factory RestaurantModel.fromJson({
-    required Map<String, dynamic> json,
-  }) {
-    return RestaurantModel(
-      id: json['id'],
-      name: json['name'],
-      address: json['address'],
-      phone: json['phone'],
-      ratings: json['ratings'],
-      takeout: json['takeout'],
-      info: json['info'],
-      deliveryTime: json['deliveryTime'],
-      deliveryFee: json['deliveryFee'],
-      status: json['status'],
-      img: json['img'],
-    );
-  }
+  factory RestaurantModel.fromJson(Map<String, dynamic> json) =>
+      _$RestaurantModelFromJson(json);
+  // factory RestaurantModel.fromJson({
+  //   required Map<String, dynamic> json,
+  // }) {
+  //   return RestaurantModel(
+  //     id: json['id'],
+  //     name: json['name'],
+  //     address: json['address'],
+  //     phone: json['phone'],
+  //     ratings: json['ratings'],
+  //     takeout: json['takeout'],
+  //     info: json['info'],
+  //     deliveryTime: json['deliveryTime'],
+  //     deliveryFee: json['deliveryFee'],
+  //     status: json['status'],
+  //     img: json['img'],
+  //   );
+  // }
 }
