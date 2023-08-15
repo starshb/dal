@@ -45,9 +45,6 @@ dependencies:
   flutter_phone_direct_caller: ^2.1.1
   animated_floating_buttons: ^0.0.2
   webview_flutter: ^4.2.2
-  retrofit: '>=3.0.0 <4.0.0'
-  logger: any  #for logging purpose
-  go_router: 7.0.1
   dialog_flowtter:
 
 flutter_launcher_icons:
