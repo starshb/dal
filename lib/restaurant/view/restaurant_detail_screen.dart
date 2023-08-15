@@ -151,7 +151,7 @@ class RestaurantDetailScreen extends StatelessWidget {
     print('item? $model');
 
     // <dynamic>형식일때 사용---------
-    final newitem = RestaurantModel.fromJson(json: model);
+    final newitem = RestaurantModel.fromJson(model);
     print('newitem? $newitem');
     // final pItem = RestaurantModel.fromJson(json: item);
     // print('pItem? $pItem');
