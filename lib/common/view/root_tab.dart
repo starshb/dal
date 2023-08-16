@@ -92,7 +92,6 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
       ),
       floatingActionButton: AnimatedFloatingActionButton(
         fabButtons: [
-          // Chatbot(),
           Chatroom(),
           Call(),
         ],
