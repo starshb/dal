@@ -46,12 +46,8 @@ dependencies:
   animated_floating_buttons: ^0.0.2
   webview_flutter: ^4.2.2
   local_auth: ^2.1.2
-  bootpay_webview_flutter: ^4.2.3
-  bootpay_webview_flutter_android: ^3.6.2
-  bootpay_webview_flutter_wkwebview: ^3.4.1
   uuid: 3.0.7
   shared_preferences: 2.1.1
-  js: ^0.6.4
   fluttertoast: 8.2.1
   http: ^0.13.5
   package_info_plus: ^4.0.2
@@ -61,7 +57,7 @@ dependencies:
   retrofit: '>=3.0.0 <4.0.0'
   logger: any  #for logging purpose
   json_annotation: 4.8.0
-  bootpay: ^4.6.8
+  bootpay_api: ^3.1.33
   dialog_flowtter:
 
 flutter_launcher_icons:
