@@ -32,6 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void checkCurrentUser() async {
     final User? user = client.auth.currentUser;
+    print("user는 $user");
     if (user == null) {
       Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(

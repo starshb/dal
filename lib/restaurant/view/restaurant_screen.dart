@@ -25,8 +25,6 @@ class RestaurantScreen extends StatelessWidget {
   Future readSt() async {
     final resp = await client.storage.getBucket('deliciousdal');
     print('storage : $resp');
-    // final cs = await client.storage.createBucket('deliciousdel');
-    // print('cSCS : $cs');
   }
 
   Future<dynamic> readData() async {
@@ -34,6 +32,7 @@ class RestaurantScreen extends StatelessWidget {
     // print('data는 $resp');
     return resp;
   }
+  // Widget
 
   @override
   Widget build(BuildContext context) {

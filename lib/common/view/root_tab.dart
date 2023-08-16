@@ -1,9 +1,9 @@
 import 'package:animated_floating_buttons/animated_floating_buttons.dart';
 import 'package:deliciousdal/call/call.dart';
-import 'package:deliciousdal/chatbot/chat_send.dart';
 import 'package:deliciousdal/common/layout/default_layout.dart';
 import 'package:deliciousdal/restaurant/view/restaurant_screen.dart';
 import 'package:deliciousdal/screen/main_page.dart';
+import 'package:deliciousdal/user/view/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -44,28 +44,6 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
         index = controller.index;
       });
     }
-  }
-
-  Widget Chatbot() {
-    return Container(
-      child: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (_) => ChatSend(),
-            ),
-          );
-        },
-        heroTag: "Chatbot",
-        tooltip: 'Chatbot',
-        child: Image.asset(
-          'assets/images/icon/robot_icon.png',
-          width: 30,
-          height: 30,
-        ),
-        backgroundColor: PRIMARY_COLOR,
-      ),
-    );
   }
 
   Widget Chatroom() {
@@ -109,7 +87,7 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
           RestaurantScreen(),
           Container(child: Container(child: Text('음식'))),
           Container(child: Container(child: Text('주문'))),
-          Container(child: Container(child: Text('프로필'))),
+          ProfileScreen(),
         ],
       ),
       floatingActionButton: AnimatedFloatingActionButton(
