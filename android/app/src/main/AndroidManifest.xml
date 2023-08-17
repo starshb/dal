@@ -7,7 +7,10 @@
     <application
         android:label="맛있달"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true"
+        >
+        <!-- usesCleartextTraffic="true" 는 카카오맵과 추가 -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
