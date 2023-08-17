@@ -1,6 +1,7 @@
 import 'package:deliciousdal/common/const/colors.dart';
 import 'package:deliciousdal/common/const/data.dart';
 import 'package:deliciousdal/common/layout/default_layout.dart';
+import 'package:deliciousdal/fingerprint/screens/auth_screen.dart';
 import 'package:deliciousdal/user/view/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:deliciousdal/common/const/colors.dart';
@@ -22,6 +23,7 @@ class ProfileScreen extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             FutureBuilder(
               future: getMy(),
@@ -32,7 +34,6 @@ class ProfileScreen extends StatelessWidget {
                   );
                 }
                 return Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
                       '${snapshot.data} 님',
@@ -52,30 +53,36 @@ class ProfileScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    OutlinedButton(
-                      onPressed: () {},
-                      child: Text('보안인증'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () async {
-                        await client.auth.signOut();
-                        Navigator.of(context).pushAndRemoveUntil(
-                            MaterialPageRoute(
-                              builder: (_) => LoginScreen(),
-                            ),
-                            (route) => false);
-                      },
-                      child: Text('로그아웃'),
-                      style: ButtonStyle(
-                          // backgroundColor: MaterialStateProperty<Color>,
-                          ),
-                    ),
                   ],
                 );
               },
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            OutlinedButton(
+              onPressed: () {
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                      builder: (_) => LocalAuthScreen(),
+                    ),
+                    (route) => false);
+              },
+              child: Text('보안인증'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                await client.auth.signOut();
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                      builder: (_) => LoginScreen(),
+                    ),
+                    (route) => false);
+              },
+              child: Text('로그아웃'),
+              style: ButtonStyle(
+                  // backgroundColor: MaterialStateProperty<Color>,
+                  ),
             ),
           ],
         ),

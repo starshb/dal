@@ -16,6 +16,7 @@ class LocalAuthScreen extends StatefulWidget {
 class _LocalAuthScreenState extends State<LocalAuthScreen> {
   final LocalAuthentication auth = LocalAuthentication();
   Future<void> authinticate() async {
+    print("진입");
     try {
       final bool didAuthenticate = await auth.authenticate(
         localizedReason: 'Please authenticate to show account balance',
