@@ -63,8 +63,6 @@ dependencies:
   retrofit: '>=3.0.0 <4.0.0'
   logger: any  #for logging purpose
   json_annotation: 4.8.0
-
-
   dialog_flowtter:
 
 
