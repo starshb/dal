@@ -65,6 +65,7 @@ dependencies:
   json_annotation: 4.8.0
   iamport_webview_flutter: 3.0.5
   uni_links: ^0.5.1
+  shared_preferences: ^2.2.0
   dialog_flowtter:
 
 
