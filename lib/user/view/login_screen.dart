@@ -38,31 +38,28 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    // final current = client.auth.currentUser;
-    // if (current != null) {
-    //   Navigator.of(context).pushAndRemoveUntil(
-    //       MaterialPageRoute(
-    //         builder: (_) => RootTab(),
-    //       ),
-    //       (route) => false);
-    // }
-
-    final dio = Dio();
-    final Session? session = client.auth.currentSession;
-    print(session);
-    if (session != null) {
+    final current = client.auth.currentUser;
+    if (current != null) {
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(
             builder: (_) => RootTab(),
           ),
           (route) => false);
     }
+
+    final dio = Dio();
+    final Session? session = client.auth.currentSession;
+    print(session);
+    // if (session != null) {
+    //   WidgetsBinding.instance.addPostFrameCallback((_) {
+    //     Navigator.of(context).pushAndRemoveUntil(
+    //         MaterialPageRoute(
+    //           builder: (_) => RootTab(),
+    //         ),
+    //         (route) => false);
+    //   });
+    // }
 
     final User? user = client.auth.currentUser;
     print(user);
@@ -131,6 +128,27 @@ class _LoginScreenState extends State<LoginScreen> {
                     // await storage.write(
                     //     key: ACCESS_TOKEN_KEY, value: accessToken);
 
+                    if (uid == null || password == null) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Row(
+                            children: [
+                              Icon(
+                                Icons.priority_high_outlined,
+                                color: Colors.red,
+                              ),
+                              Text(
+                                '아이디와 비밀번호를 확인해주세요.',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                          backgroundColor: BODY_TEXT_COLOR,
+                        ),
+                      );
+                    }
                     final resp = await client.auth.signInWithPassword(
                       email: uid,
                       password: password,

@@ -1,6 +1,7 @@
 import 'package:animated_floating_buttons/animated_floating_buttons.dart';
 import 'package:deliciousdal/call/call.dart';
 import 'package:deliciousdal/common/layout/default_layout.dart';
+import 'package:deliciousdal/kakaomap/kakao_map.dart';
 import 'package:deliciousdal/order/view/map_screen.dart';
 import 'package:deliciousdal/restaurant/view/restaurant_screen.dart';
 import 'package:deliciousdal/screen/main_page.dart';
@@ -87,7 +88,7 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
         children: [
           RestaurantScreen(),
           RestaurantScreen(),
-          MapScreen(),
+          OrderMap(),
           ProfileScreen(),
         ],
       ),
