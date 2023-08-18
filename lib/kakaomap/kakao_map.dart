@@ -3,6 +3,7 @@ import 'package:deliciousdal/common/layout/default_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:kakao_map_plugin/kakao_map_plugin.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 class OrderMap extends StatefulWidget {
   const OrderMap({super.key});
 
@@ -79,7 +80,7 @@ class _OrderMapState extends State<OrderMap> {
             // ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
                 _TextChange(
@@ -90,9 +91,13 @@ class _OrderMapState extends State<OrderMap> {
                     setBool();
                     setState(() {});
                   },
-                  child: _TextChange(
-                    txt: isOrderCancel ? '주문취소됨' : '주문취소',
-                    color: Colors.white,
+                  child: Text(
+                    isOrderCancel ? '주문취소됨' : '주문취소',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
                   ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: PRIMARY_COLOR,
@@ -117,7 +122,7 @@ class _TextChange extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Text(
         txt,
         style: TextStyle(
