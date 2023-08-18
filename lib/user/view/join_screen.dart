@@ -169,14 +169,20 @@ class _Title extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      '회원가입',
-      style: TextStyle(
-        fontSize: 34,
-        fontWeight: FontWeight.w500,
-        color: Colors.black,
+    return Padding(
+      padding: const EdgeInsets.only(
+        top: 10.0,
+        bottom: 5,
       ),
-      textAlign: TextAlign.center,
+      child: Text(
+        '회원가입',
+        style: TextStyle(
+          fontSize: 34,
+          fontWeight: FontWeight.w500,
+          color: Colors.black,
+        ),
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }

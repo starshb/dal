@@ -23,6 +23,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   String uid = '';
   String password = '';
+  late final User? user;
 
   Future<String?> userLogin({
     required final String uid,
@@ -32,15 +33,36 @@ class _LoginScreenState extends State<LoginScreen> {
       email: uid,
       password: password,
     );
-    final User? user = resp.user;
+    user = resp.user;
     return user?.id;
   }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    // final current = client.auth.currentUser;
+    // if (current != null) {
+    //   Navigator.of(context).pushAndRemoveUntil(
+    //       MaterialPageRoute(
+    //         builder: (_) => RootTab(),
+    //       ),
+    //       (route) => false);
+    // }
+
     final dio = Dio();
     final Session? session = client.auth.currentSession;
     print(session);
+    if (session != null) {
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(
+            builder: (_) => RootTab(),
+          ),
+          (route) => false);
+    }
 
     final User? user = client.auth.currentUser;
     print(user);

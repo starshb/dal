@@ -5,6 +5,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isCancel = false;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Screen'),

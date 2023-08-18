@@ -29,7 +29,7 @@ class _App extends StatelessWidget {
         fontFamily: 'Nanum',
       ),
       debugShowCheckedModeBanner: false,
-      home: RootTab(),
+      home: LoginScreen(),
     );
   }
 }

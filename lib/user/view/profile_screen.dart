@@ -68,7 +68,12 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     (route) => false);
               },
-              child: Text('보안인증'),
+              child: Text(
+                '보안인증',
+                style: TextStyle(
+                  color: PRIMARY_COLOR,
+                ),
+              ),
             ),
             ElevatedButton(
               onPressed: () async {
@@ -80,9 +85,9 @@ class ProfileScreen extends StatelessWidget {
                     (route) => false);
               },
               child: Text('로그아웃'),
-              style: ButtonStyle(
-                  // backgroundColor: MaterialStateProperty<Color>,
-                  ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: PRIMARY_COLOR,
+              ),
             ),
           ],
         ),
