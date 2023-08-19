@@ -71,10 +71,10 @@ class _OrderMapState extends State<OrderMap> {
               //   children: [
 
               //y(위도), x(경도)
-              // mapTypeControl: true,
-              // mapTypeControlPosition: ControlPosition.topRight,
-              // zoomControl: true,
-              // zoomControlPosition: ControlPosition.right,
+              mapTypeControl: true,
+              mapTypeControlPosition: ControlPosition.topRight,
+              zoomControl: true,
+              zoomControlPosition: ControlPosition.right,
             ),
             // ],
             // ),
