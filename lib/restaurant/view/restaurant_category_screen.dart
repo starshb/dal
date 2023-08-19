@@ -47,10 +47,22 @@ class RestaurantCategoryScreen extends StatelessWidget {
                         final item = snapshot.data[index];
                         return Container(
                           child: Center(
-                            child: Text(
-                              item['name'],
-                              style: TextStyle(
-                                fontSize: 15,
+                            child: GestureDetector(
+                              onTap: () {},
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    item['img'],
+                                    fit: BoxFit.fill,
+                                    width: 50,
+                                  ),
+                                  Text(
+                                    item['name'],
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
