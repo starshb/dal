@@ -2,7 +2,7 @@
 - 맛있달 
 
 📌 Technology Stack
-- JWT
+- JWT 
 - Docker & Jenkins
 - Node.js 
 - Flutter 
