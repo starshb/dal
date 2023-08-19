@@ -3,6 +3,7 @@ import 'package:deliciousdal/call/call.dart';
 import 'package:deliciousdal/common/layout/default_layout.dart';
 import 'package:deliciousdal/kakaomap/kakao_map.dart';
 import 'package:deliciousdal/order/view/map_screen.dart';
+import 'package:deliciousdal/restaurant/view/restaurant_category_screen.dart';
 import 'package:deliciousdal/restaurant/view/restaurant_screen.dart';
 import 'package:deliciousdal/screen/main_page.dart';
 import 'package:deliciousdal/user/view/profile_screen.dart';
@@ -86,7 +87,7 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
         physics: NeverScrollableScrollPhysics(),
         controller: controller,
         children: [
-          RestaurantScreen(),
+          RestaurantCategoryScreen(),
           RestaurantScreen(),
           OrderMap(),
           ProfileScreen(),
