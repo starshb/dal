@@ -47,6 +47,8 @@ dependencies:
   animated_floating_buttons: ^0.0.2
   webview_flutter: ^4.2.2
   local_auth: 2.1.2
+  flutter_credit_card: ^3.0.4
+  sliding_up_panel: ^2.0.0+1
 #  bootpay: ^4.6.8
 #  bootpay_webview_flutter: ^4.2.3
 #  bootpay_webview_flutter_android: ^3.6.2
