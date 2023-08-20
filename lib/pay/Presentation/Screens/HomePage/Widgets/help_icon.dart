@@ -1,9 +1,11 @@
+import 'package:deliciousdal/user/view/profile_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../Declarations/constants.dart';
 
 class HelpIcons extends StatelessWidget {
-  const HelpIcons({Key? key, required this.icon}) : super(key: key);
-
+  HelpIcons({Key? key, required this.isBack, required this.icon})
+      : super(key: key);
+  bool isBack = false; // 도움말과 뒤로가기 버튼 구별 위함
   final IconData icon;
   @override
   Widget build(BuildContext context) {
