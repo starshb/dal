@@ -1,5 +1,5 @@
 import 'package:deliciousdal/common/const/data.dart';
-import 'package:deliciousdal/common/layout/default_layout.dart';
+import 'package:deliciousdal/restaurant/view/restaurant_category_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class RestaurantCategoryScreen extends StatelessWidget {
@@ -48,7 +48,17 @@ class RestaurantCategoryScreen extends StatelessWidget {
                         return Container(
                           child: Center(
                             child: GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (_) =>
+                                        RestaurantCategoryDetailScreen(
+                                      categoryId: item['id'],
+                                      categoryName: item['name'],
+                                    ),
+                                  ),
+                                );
+                              },
                               child: Column(
                                 children: [
                                   Image.asset(
