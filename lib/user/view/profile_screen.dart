@@ -2,6 +2,7 @@ import 'package:deliciousdal/common/const/colors.dart';
 import 'package:deliciousdal/common/const/data.dart';
 import 'package:deliciousdal/common/layout/default_layout.dart';
 import 'package:deliciousdal/fingerprint/screens/auth_screen.dart';
+import 'package:deliciousdal/pay/pay_main.dart';
 import 'package:deliciousdal/user/view/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:deliciousdal/common/const/colors.dart';
@@ -62,14 +63,29 @@ class ProfileScreen extends StatelessWidget {
             ),
             OutlinedButton(
               onPressed: () {
-                Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(
-                      builder: (_) => LocalAuthScreen(),
-                    ),
-                    (route) => false);
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => LocalAuthScreen(),
+                  ),
+                );
               },
               child: Text(
                 '보안인증',
+                style: TextStyle(
+                  color: PRIMARY_COLOR,
+                ),
+              ),
+            ),
+            OutlinedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => MyApp(),
+                  ),
+                );
+              },
+              child: Text(
+                '결제정보',
                 style: TextStyle(
                   color: PRIMARY_COLOR,
                 ),

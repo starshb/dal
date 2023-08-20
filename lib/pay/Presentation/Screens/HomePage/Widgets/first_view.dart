@@ -22,9 +22,15 @@ class FirstView extends StatelessWidget {
             padding: kPadding,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                HelpIcons(icon: Icons.close),
-                HelpIcons(icon: Icons.help_outline)
+              children: [
+                HelpIcons(
+                  icon: Icons.close,
+                  isBack: true,
+                ),
+                HelpIcons(
+                  icon: Icons.help_outline,
+                  isBack: false,
+                ),
               ],
             ),
           ),
