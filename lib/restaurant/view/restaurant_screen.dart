@@ -29,10 +29,8 @@ class RestaurantScreen extends StatelessWidget {
 
   Future<dynamic> readData() async {
     final resp = await client.from('store').select();
-    // print('data는 $resp');
     return resp;
   }
-  // Widget
 
   @override
   Widget build(BuildContext context) {
@@ -52,35 +50,45 @@ class RestaurantScreen extends StatelessWidget {
                 );
               }
               return ListView.separated(
-                  itemCount: snapshot.data!.length,
-                  itemBuilder: (_, index) {
-                    final item = snapshot.data![index];
-                    final pItem = RestaurantModel.fromJson(
-                      item,
-                    );
+                itemCount: snapshot.data!.length,
+                itemBuilder: (_, index) {
+                  final item = snapshot.data![index];
+                  final pItem = RestaurantModel.fromJson(
+                    item,
+                  );
 
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (_) => RestaurantDetailScreen(
-                              id: pItem.id,
-                            ),
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => RestaurantDetailScreen(
+                            model: pItem,
+                            // id: pItem.id,
+                            // name: pItem.name,
+                            // address: pItem.address,
+                            // phone: pItem.phone,
+                            // ratings: pItem.ratings,
+                            // takeout: pItem.takeout,
+                            // info: pItem.info,
+                            // deliveryTime: pItem.deliveryTime,
+                            // deliveryFee: pItem.deliveryFee,
+                            // status: pItem.status,
+                            // img: pItem.img,
                           ),
-                        );
-                      },
-                      child: RestaurantCard.fromModel(
-                        model: pItem,
-                      ),
-                    );
-                  },
-                  separatorBuilder: (_, index) {
-                    return SizedBox(
-                      height: 16.0,
-                    );
-                  });
-              print(snapshot.error);
-              print(snapshot.data);
+                        ),
+                      );
+                    },
+                    child: RestaurantCard.fromModel(
+                      model: pItem,
+                    ),
+                  );
+                },
+                separatorBuilder: (_, index) {
+                  return SizedBox(
+                    height: 16.0,
+                  );
+                },
+              );
             },
           ),
         ),
