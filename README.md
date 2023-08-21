@@ -21,20 +21,20 @@
 📌 Architecture  
 <br>
 <br>
-<img width="40%" src="https://github.com/gksgpwls0306/deliciousdal/assets/138543543/0eabcd22-25d6-488c-bc97-126296db7f1e"/>
+<img width="40%" src="https://github.com/starshb/deliciousdal/assets/138543543/8a354547-481c-4295-84b5-62cd709e9d6e"/>
 <hr>
 📌 Wireframe 
 <br>
 <br>
-<img width="40%" src="https://github.com/gksgpwls0306/deliciousdal/assets/138543543/1168c8e5-5810-44e3-ac14-8f43aec207e3"/>
+<img width="40%" src="https://github.com/starshb/deliciousdal/assets/138543543/b6529a3e-6f87-4e88-bc94-29338691ba10"/>
 <hr>
 📌 ERD 
 <br>
 <br>
-<img width="40%" src="https://github.com/gksgpwls0306/deliciousdal/assets/138543543/ef1ec890-b6b5-481b-aab7-98b33cdd40c7"/>
+<img width="40%" src="https://github.com/starshb/deliciousdal/assets/138543543/d58d514c-206a-41b4-a8ad-1e093b37b383"/>
 <hr>
 📌 Sequence Diagram 
 <br>
 <br>
-<img width="40%" src="https://github.com/gksgpwls0306/deliciousdal/assets/65875927/0d03e38a-2ca1-499b-a4dc-6037d5da008e"/>
+<img width="40%" src="https://github.com/starshb/deliciousdal/assets/138543543/2b9fd1ae-ce93-43d8-8906-7e2e717ae390"/>
 
